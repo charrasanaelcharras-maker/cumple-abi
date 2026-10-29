@@ -149,7 +149,7 @@
       </p>
     </header>
 
-    <!-- SECCIÓN DE VIDEO DESDE DRIVE -->
+    <!-- SECCIÓN DE VIDEO DE YOUTUBE -->
     <section class="bg-white/80 backdrop-blur-md rounded-3xl p-4 md:p-6 shadow-xl border border-lilac-200/60 relative overflow-hidden">
       <div class="flex items-center justify-between mb-4 px-2">
         <div class="flex items-center gap-2">
@@ -161,12 +161,14 @@
         </span>
       </div>
 
-      <!-- REPRODUCTOR DE VIDEO NATIVO CON DRIVE -->
+      <!-- REPRODUCTOR DE YOUTUBE INCRUSTADO -->
       <div class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-inner flex items-center justify-center">
-        <video id="custom-video" controls class="w-full h-full object-contain">
-          <source src="https://youtube.com/shorts/rV-9PofEypo?si=3653z6vUXpzWlyZo" type="video/mp4">
-          Tu navegador no soporta la reproducción de video.
-        </video>
+        <iframe 
+          src="https://www.youtube.com/embed/rV-9PofEypo" 
+          class="w-full h-full border-0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
       <p class="text-xs text-center text-purple-900/50 mt-3">
         ¿Estás lista para reirte un rato?
@@ -251,11 +253,6 @@
           <label class="block font-medium text-purple-950 mb-1">Nombre</label>
           <input type="text" id="input-name" value="Abi" class="w-full border border-purple-200 rounded-xl p-2.5 focus:ring-2 focus:ring-lilac-500 outline-none">
         </div>
-
-        <div>
-          <label class="block font-medium text-purple-950 mb-1">Enlace del Video (Link directo .mp4)</label>
-          <input type="text" id="input-video" placeholder="Ej: https://..." class="w-full border border-purple-200 rounded-xl p-2.5 focus:ring-2 focus:ring-lilac-500 outline-none">
-        </div>
       </div>
 
       <div class="p-4 border-t border-purple-100 flex justify-end gap-3 bg-gray-50">
@@ -300,15 +297,7 @@
 
     function saveChanges() {
       const name = document.getElementById('input-name').value;
-      const videoUrl = document.getElementById('input-video').value;
-
       if(name) document.getElementById('friend-name').innerText = name;
-      
-      if(videoUrl) {
-        const videoElement = document.getElementById('custom-video');
-        videoElement.src = videoUrl;
-        videoElement.load();
-      }
 
       toggleEditModal();
       
