@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regalo Especial para Mi Mejor Amiga</title>
+  <title>¡Feliz Cumpleaños, Abi! 💜</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,26 +27,37 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#fff1f2',
-              100: '#ffe4e6',
-              200: '#fecdd3',
-              300: '#fda4af',
-              400: '#fb7185',
-              500: '#f43f5e',
-              600: '#e11d48',
-            },
-            warm: {
-              bg: '#faf6f0',
-              card: '#ffffff',
-              accent: '#f3e8de',
-              text: '#4a3e3d'
+            lilac: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
             }
           },
           fontFamily: {
             handwriting: ['Caveat', 'cursive'],
             serif: ['Playfair Display', 'serif'],
             sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          keyframes: {
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+            },
+            floatReverse: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(15px) rotate(-3deg)' },
+            }
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'float-reverse': 'floatReverse 7s ease-in-out infinite',
           }
         }
       }
@@ -55,33 +66,21 @@
 
   <style>
     body {
-      background-color: #faf6f0;
-      color: #4a3e3d;
+      background-color: #f8fafc;
+      color: #3b0764;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
-
     .polaroid {
       background: white;
-      padding: 12px 12px 35px 12px;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+      padding: 10px 10px 30px 10px;
+      box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.15), 0 8px 10px -6px rgba(124, 58, 237, 0.05);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .polaroid:hover {
-      transform: translateY(-8px) rotate(0deg) scale(1.02) !important;
-      box-shadow: 0 20px 30px -10px rgba(244, 63, 94, 0.2);
+      transform: translateY(-8px) scale(1.03) !important;
+      box-shadow: 0 20px 30px -10px rgba(139, 92, 246, 0.3);
       z-index: 20;
     }
-
-    .envelope-wrapper {
-      perspective: 1000px;
-    }
-    .envelope {
-      position: relative;
-      background-color: #fce7f3;
-      transform-style: preserve-3d;
-      transition: transform 0.6s;
-    }
-
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
@@ -90,172 +89,161 @@
       border-radius: 8px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #fda4af;
+      background: #c4b5fd;
       border-radius: 8px;
     }
   </style>
 </head>
-<body class="min-h-screen relative overflow-x-hidden">
+<body class="min-h-screen relative overflow-x-hidden bg-gradient-to-br from-purple-50 via-lilac-50 to-indigo-100">
 
-  <!-- OVERLAY DE BIENVENIDA / APERTURA DE REGALO -->
-  <div id="gift-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-rose-100 via-pink-50 to-orange-100 p-4 transition-all duration-700">
-    <div class="text-center max-w-md mx-auto">
-      <div class="inline-block animate-bounce mb-4">
-        <span class="text-5xl">🎁</span>
+  <!-- OVERLAY DE BIENVENIDA / FOTOS VOLANDO Y ANIMACIÓN -->
+  <div id="gift-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden p-4 transition-all duration-700 bg-gradient-to-br from-purple-900/90 via-lilac-900/90 to-indigo-950/90 backdrop-blur-md">
+    
+    <!-- FOTOS VOLANDO DE FONDO -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
+      <!-- Foto 1 -->
+      <div class="absolute top-[10%] left-[10%] w-28 md:w-36 polaroid animate-float-slow transform -rotate-12">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=400" class="w-full aspect-square object-cover rounded-sm">
       </div>
-      <h1 class="font-serif text-3xl md:text-4xl text-rose-900 font-semibold mb-2" id="welcome-title">¡Tengo algo muy especial para vos!</h1>
-      <p class="text-rose-700/80 mb-8 font-medium">Hacé clic en la caja para descubrir tu regalo de cumpleaños y recuerdos.</p>
+      <!-- Foto 2 -->
+      <div class="absolute top-[15%] right-[10%] w-32 md:w-40 polaroid animate-float-reverse transform rotate-12">
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=400" class="w-full aspect-square object-cover rounded-sm">
+      </div>
+      <!-- Foto 3 -->
+      <div class="absolute bottom-[10%] left-[15%] w-32 md:w-44 polaroid animate-float-reverse transform rotate-6">
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400" class="w-full aspect-square object-cover rounded-sm">
+      </div>
+      <!-- Foto 4 -->
+      <div class="absolute bottom-[12%] right-[15%] w-28 md:w-36 polaroid animate-float-slow transform -rotate-6">
+        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=400" class="w-full aspect-square object-cover rounded-sm">
+      </div>
+    </div>
+
+    <!-- CONTENEDOR CENTRAL DEL MENSAJE DE BIENVENIDA -->
+    <div class="relative z-10 text-center max-w-lg mx-auto px-4 bg-white/10 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-white/20 shadow-2xl">
+      <div class="inline-block animate-bounce mb-4 text-4xl md:text-5xl">💜✨</div>
+      <h1 class="font-serif text-3xl md:text-5xl text-white font-bold mb-4 tracking-tight">
+        ¡Feliz cumpleaños Abi!
+      </h1>
+      <p class="text-lilac-200 text-sm md:text-base mb-8 font-medium">
+        Toca el botón para abrir tu regalo especial, ver nuestro video y revivir nuestros mejores momentos.
+      </p>
       
-      <!-- Regalo Interactivo -->
-      <button onclick="openGift()" class="group relative inline-flex items-center justify-center focus:outline-none">
-        <div class="w-40 h-40 bg-gradient-to-tr from-rose-500 to-pink-400 rounded-3xl shadow-2xl flex items-center justify-center transform group-hover:scale-105 group-active:scale-95 transition-all duration-300 relative border-4 border-white/40">
-          <div class="absolute inset-x-0 h-8 bg-rose-600/40 top-1/2 -translate-y-1/2"></div>
-          <div class="absolute inset-y-0 w-8 bg-rose-600/40 left-1/2 -translate-x-1/2"></div>
-          <i data-lucide="sparkles" class="w-12 h-12 text-white animate-pulse"></i>
-        </div>
+      <button onclick="openGift()" class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-lilac-500 to-purple-600 hover:from-lilac-400 hover:to-purple-500 text-white font-semibold py-4 px-8 rounded-2xl shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 border border-white/30">
+        <i data-lucide="play-circle" class="w-6 h-6 animate-pulse"></i>
+        <span>Abrir Regalo y Ver Video</span>
       </button>
-      <p class="mt-6 text-xs text-rose-400 uppercase tracking-widest font-semibold">Toca para abrir</p>
     </div>
   </div>
 
   <!-- CONTENIDO PRINCIPAL DE LA WEB -->
   <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000 max-w-4xl mx-auto px-4 py-8 md:py-12 space-y-16">
     
-    <!-- ENCABEZADO Y TITULO -->
+    <!-- ENCABEZADO -->
     <header class="text-center space-y-3 pt-4">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 text-rose-700 text-sm font-medium">
-        <i data-lucide="heart" class="w-4 h-4 fill-rose-500 text-rose-500"></i>
-        <span id="header-subtitle">Para mi mejor amiga en el mundo</span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-sm font-medium shadow-sm">
+        <i data-lucide="heart" class="w-4 h-4 fill-lilac-600 text-lilac-600"></i>
+        <span>Para mi mejor amiga en su día</span>
       </div>
-      <h1 class="font-serif text-4xl md:text-6xl text-gray-800 tracking-tight" id="header-title">
-        ¡Feliz Día, <span class="text-rose-600 italic" id="friend-name">Sofia</span>!
+      <h1 class="font-serif text-4xl md:text-6xl text-purple-950 tracking-tight">
+        ¡Feliz Cumple, <span class="text-lilac-600 italic" id="friend-name">Abi</span>! 💜
       </h1>
-      <p class="text-gray-600 text-base md:text-lg max-w-lg mx-auto font-light" id="header-desc">
-        Prepare este rincón digital para guardar un pedacito de todo lo que vivimos juntas. ¡Espero que te emocione tanto como a mí armarlo!
+      <p class="text-purple-900/70 text-base md:text-lg max-w-lg mx-auto font-light">
+        Preparé este espacio lleno de recuerdos y un video exclusivo para celebrar nuestra amistad.
       </p>
     </header>
 
-    <!-- SECCIÓN DE VIDEO PRINCIPAL -->
-    <section class="bg-white rounded-3xl p-4 md:p-6 shadow-xl border border-rose-100/60 relative overflow-hidden">
+    <!-- SECCIÓN DE VIDEO DIRECTO (SIN YOUTUBE) -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-4 md:p-6 shadow-xl border border-lilac-200/60 relative overflow-hidden">
       <div class="flex items-center justify-between mb-4 px-2">
         <div class="flex items-center gap-2">
-          <div class="w-3 h-3 rounded-full bg-rose-500 animate-ping"></div>
-          <h2 class="font-serif text-xl md:text-2xl text-gray-800">Nuestro Video Especial</h2>
+          <div class="w-3 h-3 rounded-full bg-lilac-500 animate-ping"></div>
+          <h2 class="font-serif text-xl md:text-2xl text-purple-950">Nuestro Video Especial</h2>
         </div>
-        <span class="text-xs bg-rose-50 text-rose-600 px-3 py-1 rounded-full font-medium flex items-center gap-1">
+        <span class="text-xs bg-lilac-100 text-lilac-700 px-3 py-1 rounded-full font-medium flex items-center gap-1">
           <i data-lucide="film" class="w-3.5 h-3.5"></i> Dale Play
         </span>
       </div>
 
-      <!-- REPRODUCTOR DE VIDEO / EMBED -->
-      <div class="relative aspect-video rounded-2xl overflow-hidden bg-gray-900 shadow-inner group">
-        <iframe 
-          id="video-frame"
-          class="w-full h-full border-0"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-          title="Video especial" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+      <!-- REPRODUCTOR DE VIDEO NATIVO -->
+      <div class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-inner flex items-center justify-center">
+        <video id="custom-video" controls class="w-full h-full object-contain">
+          <source src="" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
       </div>
-      <p class="text-xs text-center text-gray-400 mt-3" id="video-caption">
-        * Si estás usando Google Drive, recordá darle permisos de visualización pública a tu enlace.
+      <p class="text-xs text-center text-purple-900/50 mt-3">
+        * Podés cambiar el enlace del video en cualquier momento desde el botón de configuración flotante.
       </p>
     </section>
 
     <!-- GALERÍA POLAROID -->
     <section class="space-y-6">
       <div class="text-center space-y-1">
-        <h2 class="font-serif text-2xl md:text-3xl text-gray-800">Momentos Inolvidables</h2>
-        <p class="text-sm text-gray-500">Algunas de nuestras fotos favoritas juntas</p>
+        <h2 class="font-serif text-2xl md:text-3xl text-purple-950">Momentos Inolvidables</h2>
+        <p class="text-sm text-purple-900/60">Nuestros mejores recuerdos juntas</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-4" id="polaroid-grid">
-        <!-- Foto 1 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-4">
         <div class="polaroid transform -rotate-2">
           <div class="aspect-square bg-gray-100 overflow-hidden rounded-sm mb-3">
             <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Foto 1">
           </div>
-          <p class="font-handwriting text-2xl text-center text-gray-700">Aquel viaje inolvidable 🌸</p>
+          <p class="font-handwriting text-2xl text-center text-purple-900">Risas infinitas ✨</p>
         </div>
-        <!-- Foto 2 -->
         <div class="polaroid transform rotate-2">
           <div class="aspect-square bg-gray-100 overflow-hidden rounded-sm mb-3">
             <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Foto 2">
           </div>
-          <p class="font-handwriting text-2xl text-center text-gray-700">Risas infinitas ✨</p>
+          <p class="font-handwriting text-2xl text-center text-purple-900">Aventuras juntas 🌸</p>
         </div>
-        <!-- Foto 3 -->
         <div class="polaroid transform -rotate-1">
           <div class="aspect-square bg-gray-100 overflow-hidden rounded-sm mb-3">
             <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Foto 3">
           </div>
-          <p class="font-handwriting text-2xl text-center text-gray-700">Compañeras de vida 💖</p>
+          <p class="font-handwriting text-2xl text-center text-purple-900">Compañeras de vida 💖</p>
         </div>
       </div>
     </section>
 
-    <!-- CARTA INTERACTIVA -->
-    <section class="space-y-6">
-      <div class="text-center">
-        <h2 class="font-serif text-2xl md:text-3xl text-gray-800">Una Carta Para Vos</h2>
-        <p class="text-sm text-gray-500">Hacé clic en el sobre para leer lo que tengo para decirte</p>
-      </div>
-
-      <div class="max-w-xl mx-auto">
-        <div id="letter-card" onclick="toggleLetter()" class="cursor-pointer bg-amber-50/60 border border-amber-200/80 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 relative">
-          <div class="flex items-center justify-between border-b border-amber-200/60 pb-4 mb-4">
-            <span class="font-handwriting text-2xl text-amber-900">De mi corazón para el tuyo...</span>
-            <i data-lucide="mail-open" class="w-5 h-5 text-amber-700"></i>
-          </div>
-          <div class="font-handwriting text-2xl md:text-3xl text-gray-800 leading-relaxed space-y-4" id="letter-body">
-            <p>Querida mejor amiga,</p>
-            <p>Gracias por estar siempre, por cada risa compartida, por los abrazos en los momentos difíciles y por ser esa persona con la que puedo ser 100% yo misma sin juzgarme.</p>
-            <p>Espero que esta caja y este video te recuerden lo valiosa que sos para mí. ¡Por muchos años más de amistad y aventuras juntas!</p>
-            <p class="text-right pt-4 text-rose-600">Con todo mi cariño ❤️</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GENERADOR DE CÓDIGO QR PARA LA CAJA -->
-    <section class="bg-gradient-to-br from-rose-500 to-pink-600 rounded-3xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+    <!-- GENERADOR DE CÓDIGO QR AL ULTIMO -->
+    <section class="bg-gradient-to-br from-purple-600 to-lilac-700 rounded-3xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="space-y-2 text-center md:text-left max-w-md">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-xs font-semibold backdrop-blur-sm">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/25 text-xs font-semibold backdrop-blur-sm">
           <i data-lucide="qr-code" class="w-3.5 h-3.5"></i> Para tu caja física
         </div>
-        <h3 class="font-serif text-2xl font-bold">¡Imprimí el Código QR!</h3>
-        <p class="text-rose-100 text-sm">
-          Generá la imagen del QR para pegarla dentro de la caja de regalos. Cuando tu amiga lo escanee con su celular, llegará directo a esta página.
+        <h3 class="font-serif text-2xl font-bold">¡Descargá el Código QR!</h3>
+        <p class="text-lilac-100 text-sm">
+          Guardá la imagen del QR para imprimirla y pegarla dentro de la caja de regalos. Al escanearla, Abi llegará directo a esta web.
         </p>
       </div>
       
       <div class="bg-white p-4 rounded-2xl shadow-lg flex flex-col items-center space-y-3">
         <div id="qrcode-container" class="w-36 h-36 flex items-center justify-center bg-gray-50 rounded-lg"></div>
-        <button onclick="downloadQR()" class="w-full text-xs bg-rose-600 hover:bg-rose-700 text-white font-medium py-2 px-4 rounded-xl transition flex items-center justify-center gap-1.5">
+        <button onclick="downloadQR()" class="w-full text-xs bg-purple-700 hover:bg-purple-800 text-white font-medium py-2 px-4 rounded-xl transition flex items-center justify-center gap-1.5 shadow-md">
           <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar QR
         </button>
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center text-xs text-gray-400 pt-8 pb-12">
-      <p>Hecho con todo el amor del mundo 💌</p>
+    <footer class="text-center text-xs text-purple-900/40 pt-8 pb-12">
+      <p>Hecho con todo el amor del mundo para Abi 💜</p>
     </footer>
   </main>
 
-  <!-- BOTÓN FLOTANTE PARA ABRIR MENÚ DE EDICIÓN -->
-  <button onclick="toggleEditModal()" class="fixed bottom-5 right-5 z-40 bg-gray-900 hover:bg-gray-800 text-white p-3.5 rounded-full shadow-2xl transition hover:scale-110 flex items-center gap-2 group">
+  <!-- BOTÓN FLOTANTE PARA MENÚ DE EDICIÓN -->
+  <button onclick="toggleEditModal()" class="fixed bottom-5 right-5 z-40 bg-purple-900 hover:bg-purple-950 text-white p-3.5 rounded-full shadow-2xl transition hover:scale-110 flex items-center gap-2 group">
     <i data-lucide="settings-2" class="w-5 h-5"></i>
     <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-xs font-medium">Personalizar Web</span>
   </button>
 
-  <!-- MODAL DE CONFIGURACIÓN Y EDICIÓN -->
+  <!-- MODAL DE CONFIGURACIÓN -->
   <div id="edit-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
-      <div class="p-5 border-b border-gray-100 flex items-center justify-between bg-rose-50/50">
-        <h3 class="font-bold text-gray-800 flex items-center gap-2">
-          <i data-lucide="edit-3" class="w-4 h-4 text-rose-500"></i> Personalizar Contenido
+      <div class="p-5 border-b border-purple-100 flex items-center justify-between bg-lilac-50">
+        <h3 class="font-bold text-purple-950 flex items-center gap-2">
+          <i data-lucide="edit-3" class="w-4 h-4 text-lilac-600"></i> Personalizar Contenido
         </h3>
         <button onclick="toggleEditModal()" class="text-gray-400 hover:text-gray-600 p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -264,51 +252,36 @@
 
       <div class="p-6 overflow-y-auto space-y-4 custom-scrollbar text-sm">
         <div>
-          <label class="block font-medium text-gray-700 mb-1">Nombre de tu amiga</label>
-          <input type="text" id="input-name" value="Sofia" class="w-full border border-gray-200 rounded-xl p-2.5 focus:ring-2 focus:ring-rose-400 outline-none">
+          <label class="block font-medium text-purple-950 mb-1">Nombre</label>
+          <input type="text" id="input-name" value="Abi" class="w-full border border-purple-200 rounded-xl p-2.5 focus:ring-2 focus:ring-lilac-500 outline-none">
         </div>
 
         <div>
-          <label class="block font-medium text-gray-700 mb-1">Enlace del Video (YouTube o Drive)</label>
-          <input type="text" id="input-video" value="https://www.youtube.com/embed/dQw4w9WgXcQ" class="w-full border border-gray-200 rounded-xl p-2.5 focus:ring-2 focus:ring-rose-400 outline-none">
-          <p class="text-[11px] text-gray-400 mt-1">Si es de YouTube, usa el link de "Insertar" (embed) o pegá el link directo.</p>
-        </div>
-
-        <div>
-          <label class="block font-medium text-gray-700 mb-1">Texto de la Carta</label>
-          <textarea id="input-letter" rows="5" class="w-full border border-gray-200 rounded-xl p-2.5 focus:ring-2 focus:ring-rose-400 outline-none font-handwriting text-lg">Querida mejor amiga,
-
-Gracias por estar siempre, por cada risa compartida, por los abrazos en los momentos difíciles y por ser esa persona con la que puedo ser 100% yo misma sin juzgarme.
-
-Espero que esta caja y este video te recuerden lo valiosa que sos para mí. ¡Por muchos años más de amistad y aventuras juntas!
-
-Con todo mi cariño ❤️</textarea>
+          <label class="block font-medium text-purple-950 mb-1">Enlace del Video (Link directo .mp4)</label>
+          <input type="text" id="input-video" placeholder="Ej: https://...video.mp4" class="w-full border border-purple-200 rounded-xl p-2.5 focus:ring-2 focus:ring-lilac-500 outline-none">
         </div>
       </div>
 
-      <div class="p-4 border-t border-gray-100 flex justify-end gap-3 bg-gray-50">
+      <div class="p-4 border-t border-purple-100 flex justify-end gap-3 bg-gray-50">
         <button onclick="toggleEditModal()" class="px-4 py-2 text-gray-600 hover:bg-gray-200/60 rounded-xl transition">Cancelar</button>
-        <button onclick="saveChanges()" class="px-5 py-2 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-xl transition shadow-md">Guardar Cambios</button>
+        <button onclick="saveChanges()" class="px-5 py-2 bg-lilac-600 hover:bg-lilac-700 text-white font-medium rounded-xl transition shadow-md">Guardar Cambios</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Inicializar Iconos
     lucide.createIcons();
-
     let qrCode;
 
-    // Función para abrir la caja
     function openGift() {
       const overlay = document.getElementById('gift-overlay');
       const mainContent = document.getElementById('main-content');
 
-      // Confeti
       confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 }
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.5 },
+        colors: ['#a78bfa', '#c4b5fd', '#8b5cf6', '#f472b6', '#fb7185']
       });
 
       overlay.classList.add('opacity-0', 'pointer-events-none');
@@ -320,35 +293,25 @@ Con todo mi cariño ❤️</textarea>
         }, 50);
       }, 700);
 
-      // Generar QR por primera vez
       generateQRCode(window.location.href);
     }
 
-    // Modal de edición
     function toggleEditModal() {
       const modal = document.getElementById('edit-modal');
       modal.classList.toggle('hidden');
       modal.classList.toggle('flex');
     }
 
-    // Guardar cambios del formulario
     function saveChanges() {
       const name = document.getElementById('input-name').value;
       const videoUrl = document.getElementById('input-video').value;
-      const letterText = document.getElementById('input-letter').value;
 
       if(name) document.getElementById('friend-name').innerText = name;
       
       if(videoUrl) {
-        let finalUrl = videoUrl;
-        if(videoUrl.includes('watch?v=')) {
-          finalUrl = videoUrl.replace('watch?v=', 'embed/');
-        }
-        document.getElementById('video-frame').src = finalUrl;
-      }
-
-      if(letterText) {
-        document.getElementById('letter-body').innerHTML = letterText.replace(/\n/g, '<br>');
+        const videoElement = document.getElementById('custom-video');
+        videoElement.src = videoUrl;
+        videoElement.load();
       }
 
       toggleEditModal();
@@ -356,11 +319,11 @@ Con todo mi cariño ❤️</textarea>
       confetti({
         particleCount: 50,
         spread: 50,
-        origin: { y: 0.8 }
+        origin: { y: 0.8 },
+        colors: ['#a78bfa', '#8b5cf6']
       });
     }
 
-    // Generador de Código QR
     function generateQRCode(url) {
       const container = document.getElementById("qrcode-container");
       container.innerHTML = "";
@@ -371,14 +334,14 @@ Con todo mi cariño ❤️</textarea>
         type: "svg",
         data: url,
         dotsOptions: {
-          color: "#e11d48",
+          color: "#7c3aed",
           type: "rounded"
         },
         backgroundOptions: {
           color: "#ffffff",
         },
         cornersSquareOptions: {
-          color: "#e11d48",
+          color: "#5b21b6",
           type: "extra-rounded"
         }
       });
@@ -388,7 +351,7 @@ Con todo mi cariño ❤️</textarea>
 
     function downloadQR() {
       if(qrCode) {
-        qrCode.download({ name: "qr-regalo-amiga", extension: "png" });
+        qrCode.download({ name: `qr-cumple-${document.getElementById('friend-name').innerText.toLowerCase()}`, extension: "png" });
       }
     }
   </script>
