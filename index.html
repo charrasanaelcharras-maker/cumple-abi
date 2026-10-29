@@ -149,9 +149,9 @@
       </p>
     </header>
 
-    <!-- SECCIÓN DE VIDEO DE YOUTUBE -->
-    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-4 md:p-6 shadow-xl border border-lilac-200/60 relative overflow-hidden">
-      <div class="flex items-center justify-between mb-4 px-2">
+    <!-- SECCIÓN DE VIDEO VERTICAL (FORMATO TIKTOK / SHORTS) -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-4 md:p-6 shadow-xl border border-lilac-200/60 relative overflow-hidden flex flex-col items-center">
+      <div class="flex items-center justify-between w-full mb-4 px-2">
         <div class="flex items-center gap-2">
           <div class="w-3 h-3 rounded-full bg-lilac-500 animate-ping"></div>
           <h2 class="font-serif text-xl md:text-2xl text-purple-950">Nuestro Video Especial</h2>
@@ -161,8 +161,8 @@
         </span>
       </div>
 
-      <!-- REPRODUCTOR DE YOUTUBE INCRUSTADO -->
-      <div class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-inner flex items-center justify-center">
+      <!-- REPRODUCTOR ENQUADRADO EN FORMATO VERTICAL 9:16 -->
+      <div class="relative w-full max-w-xs md:max-w-sm aspect-[9/16] h-[520px] rounded-2xl overflow-hidden bg-black shadow-2xl flex items-center justify-center border-2 border-purple-200">
         <iframe 
           src="https://archive.org/details/abi_video_202610" 
           class="w-full h-full border-0" 
