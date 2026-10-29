@@ -149,7 +149,7 @@
       </p>
     </header>
 
-    <!-- SECCIÓN DE VIDEO LOCAL -->
+    <!-- SECCIÓN DE VIDEO DESDE DRIVE -->
     <section class="bg-white/80 backdrop-blur-md rounded-3xl p-4 md:p-6 shadow-xl border border-lilac-200/60 relative overflow-hidden">
       <div class="flex items-center justify-between mb-4 px-2">
         <div class="flex items-center gap-2">
@@ -164,7 +164,7 @@
       <!-- REPRODUCTOR DE VIDEO NATIVO -->
       <div class="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-inner flex items-center justify-center">
         <video id="custom-video" controls class="w-full h-full object-contain">
-          <source src="assets/video-abi.mp4" type="video/mp4">
+          <source src="https://drive.google.com/uc?export=download&id=1GxXU5c_ZEhgoBsHHq-ctA8zo427enYQz" type="video/mp4">
           Tu navegador no soporta la reproducción de video.
         </video>
       </div>
@@ -183,7 +183,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-4">
         <div class="polaroid transform -rotate-2">
           <div class="aspect-square bg-gray-100 overflow-hidden rounded-sm mb-3">
-            <!-- AJUSTE DE ENCUADRE: object-top para enfocar las caras arriba -->
+            <!-- object-top aplicado para evitar cortes en las caras -->
             <img src="assets/foto2.jpg" class="w-full h-full object-cover object-top" alt="Foto 2">
           </div>
           <p class="font-handwriting text-2xl text-center text-purple-900">Mi mejor amiga</p>
@@ -255,7 +255,7 @@
 
         <div>
           <label class="block font-medium text-purple-950 mb-1">Enlace del Video (Link directo .mp4)</label>
-          <input type="text" id="input-video" placeholder="Ej: assets/video-abi.mp4" class="w-full border border-purple-200 rounded-xl p-2.5 focus:ring-2 focus:ring-lilac-500 outline-none">
+          <input type="text" id="input-video" placeholder="Ej: https://..." class="w-full border border-purple-200 rounded-xl p-2.5 focus:ring-2 focus:ring-lilac-500 outline-none">
         </div>
       </div>
 
